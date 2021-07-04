@@ -1,0 +1,49 @@
+{
+  "address": [
+    {
+      "name": "Aakash Singh",
+      "address": "South Hall",
+      "city": "Chandigarh",
+      "state": "Punjab",
+      "zipcode": "248140",
+      "phonenumber": "+91 9801234567",
+      "id": 1
+    },
+    {
+      "name": "Pragya Rathore",
+      "address": "New Villa",
+      "city": "Roorkee",
+      "state": "Uttarakhand",
+      "zipcode": "345140",
+      "phonenumber": "+12 9012045678",
+      "id": 2
+    },
+    {
+      "name": "Pratiksha",
+      "address": "Keshav Nagar",
+      "city": "Mumbai",
+      "state": "Maharastra",
+      "zipcode": "441904",
+      "phoneNumber": "99 7744558877",
+      "id": 3
+    },
+    {
+      "name": "Megha Manwal",
+      "address": "Hill Road Station",
+      "city": "Dehradun",
+      "state": "Uttarakhand",
+      "zipcode": "441974",
+      "phoneNumber": "99 7744558811",
+      "id": 4
+    },
+    {
+      "name": "Gon",
+      "address": "Keshav Nagar Plot No. 38",
+      "city": "Pune",
+      "state": "Maharastra",
+      "zipcode": "441904",
+      "phoneNumber": "77 8844551122",
+      "id": 5
+    }
+  ]
+}
