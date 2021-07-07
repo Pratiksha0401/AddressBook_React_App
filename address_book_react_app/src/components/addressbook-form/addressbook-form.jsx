@@ -49,11 +49,8 @@ const PayrollForm = (props) => {
             isError = true;
         }
 
-        let addressRegex = RegExp('^[A-Za-z0-9.]{1}[a-zA-Z0-9.\\s]{2,}$')
-        if (addressRegex.test(formValue.address)) {
-            isError = false;
-        } else {
-            error.address = 'Invalid Address'
+        if (formValue.address === '') {
+            error.address = 'Address is required field'
             isError = true;
         }
 
@@ -72,7 +69,7 @@ const PayrollForm = (props) => {
             isError = true;
         }
 
-        let phoneNumberRegex = RegExp('[+]{0,1}[0-9]{1,}\\s[1-9]{1}[0-9]{9}$')
+        let phoneNumberRegex = RegExp('[+]{0,1}[0-9]{1,}\\s{0,1}[1-9]{1}[0-9]{9}$')
         if (phoneNumberRegex.test(formValue.phoneNumber)) {
             isError = false;
         } else {
@@ -90,7 +87,7 @@ const PayrollForm = (props) => {
         event.preventDefault();
         if (await validData()) {
             console.log('error', formValue);
-            return;
+            return false;
         }
 
         let object = {
@@ -103,7 +100,7 @@ const PayrollForm = (props) => {
         }
 
         addressbookService.addPerson(object).then(response => {
-            alert("Data Added successfully");
+            alert("Data Added successfully",response.data);
             reset();
             console.log("Data added");
         }).catch(err => {
