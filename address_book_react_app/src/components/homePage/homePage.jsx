@@ -37,7 +37,7 @@ class HomePage extends React.Component {
                         <div className="per-detail-text">
                             Person Details<div className="per-count">{this.state.addressArray.length}</div>
                         </div>
-                        <Link to="addressbook-form" className="add-button" href="./AddPerson.html">
+                        <Link to="/addressbook-form" className="add-button" href="./AddPerson.html">
                             <img src={AddIcon} alt="Icon" />Add Person
                         </Link>
                     </div>

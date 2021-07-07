@@ -2,9 +2,22 @@ import React from 'react';
 import './display.scss';
 import deleteIcon from '../../assets/delete-black-18dp.svg';
 import editIcon from '../../assets/create-black-18dp.svg';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import { element } from 'prop-types';
+import AddressbookService from '../../services/addressbook-service';
+
 const Display = (props) => {
+    const addressbookService = new AddressbookService();
+    const history =useHistory();
+
+    const remove = (id) => {
+        addressbookService.deletePerson(id).then(responseData =>{
+            alert("Employee deleted successfully",responseData.data);
+            history.push("/")
+        }).catch(err=>{
+            alert("error ehile deleting data");
+        })
+    }
 
     return(
         <div className="table-main">
@@ -29,7 +42,7 @@ const Display = (props) => {
                             <td>{element.zipcode}</td>
                             <td>{element.phoneNumber}</td>
                             <td>
-                                <img src={deleteIcon} alt="Delete" />
+                                <img src={deleteIcon} alt="Delete" onClick={() => remove(element.id)}/>
                                 <img src={editIcon} alt="Edit" />
                             </td>    
                         </tr>

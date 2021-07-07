@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './addressbook-form.scss';
 import ToolBar from '../toolbar';
-import { useParams, Link, withRouter } from 'react-router';
+import { useParams, Link, withRouter } from 'react-router-dom';
 import CrossIcon from '../../assets/cancel.jpeg';
 import AddressbookService from '../../services/addressbook-service';
+import { useHistory } from 'react-router-dom';
 
 const PayrollForm = (props) => {
     let initialValue = {
@@ -82,6 +83,7 @@ const PayrollForm = (props) => {
     }
 
     const addressbookService = new AddressbookService();
+    const history =useHistory();
 
     const save = async (event) => {
         event.preventDefault();
@@ -101,6 +103,7 @@ const PayrollForm = (props) => {
 
         addressbookService.addPerson(object).then(response => {
             alert("Data Added successfully",response.data);
+            history.push("/");
             reset();
         }).catch(err => {
             console.log("Error while Adding Data")
@@ -122,7 +125,7 @@ const PayrollForm = (props) => {
                 <form className="form " action="#" onSubmit={save}>
                     <div className="form-head">
                         <div className="form-head-text">PERSON ADDRESS FORM</div>
-                        <div className="cancel-img"><img src={CrossIcon} alt="crossIcon" /></div>
+                        <Link to="/"  className="cancel-img"><img src={CrossIcon} alt="crossIcon" /></Link>
                     </div>
 
                     <div className="row-content">

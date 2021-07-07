@@ -1,24 +1,6 @@
 {
   "addressbook": [
     {
-      "name": "Aakash Singh",
-      "address": "South Hall",
-      "city": "Chandigarh",
-      "state": "Punjab",
-      "zipcode": "248140",
-      "phonenumber": "+91 9801234567",
-      "id": 1
-    },
-    {
-      "name": "Pragya Rathore",
-      "address": "New Villa",
-      "city": "Roorkee",
-      "state": "Uttarakhand",
-      "zipcode": "345140",
-      "phonenumber": "+12 9012045678",
-      "id": 2
-    },
-    {
       "name": "Pratiksha",
       "address": "Keshav Nagar",
       "city": "Mumbai",

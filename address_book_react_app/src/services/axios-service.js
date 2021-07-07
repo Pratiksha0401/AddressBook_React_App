@@ -15,6 +15,14 @@ export default  {
             APIendpoints : endpoint i.e 'comments/' , 'answers/' , 'editquestions'
         */
        return axios.get(url, payload, tokenRequired && httOptions);
+    },
+
+    deleteService(url = '', payload=null, tokenRequired=false, httOptions = null){
+        /* handles post operations 
+            params : id : id of questions or comments to add/post
+            APIendpoints : endpoint i.e 'comments/' , 'answers/' , 'editquestions'
+        */
+       return axios.delete(url, payload, tokenRequired && httOptions);
     }
 }
 
