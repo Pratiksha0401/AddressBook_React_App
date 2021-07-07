@@ -102,9 +102,8 @@ const PayrollForm = (props) => {
         addressbookService.addPerson(object).then(response => {
             alert("Data Added successfully",response.data);
             reset();
-            console.log("Data added");
         }).catch(err => {
-            console.log("err while Add")
+            console.log("Error while Adding Data")
 
         })
     }

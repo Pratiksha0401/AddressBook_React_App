@@ -62,6 +62,15 @@
       "zipcode": "441905",
       "phoneNumber": "99 7788445511",
       "id": 7
+    },
+    {
+      "name": "Pranali",
+      "address": "aaa",
+      "city": "Ranchi",
+      "state": "Karnataka",
+      "zipcode": "111111",
+      "phoneNumber": "77 4488551122",
+      "id": 8
     }
   ]
 }

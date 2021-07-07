@@ -12,6 +12,6 @@ import AxiosService  from './axios-service';
 export default class AddressbookService {
     baseUrl = config.baseUrl;
     addPerson(data) {
-        return AxiosService.postService(`${this.baseUrl}address`, data);
+        return AxiosService.postService(`${this.baseUrl}`, data);
     }
 }
