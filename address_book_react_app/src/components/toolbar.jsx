@@ -6,7 +6,7 @@ class ToolBar extends React.Component {
     render() {
         return (
             <div>
-                <header className="header header-content">
+                <header className="header">
                     <div className="logo-content">
                         <img src={logo} alt="Logo" />
                         <div>

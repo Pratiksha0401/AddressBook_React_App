@@ -1,4 +1,5 @@
 
+import HomePage from './components/homePage/homePage';
 import AddressbookForm from './components/addressbook-form/addressbook-form'
 import {BrowserRouter as Router , Switch, Route} from "react-router-dom";
 
@@ -7,9 +8,8 @@ function App() {
     <div className="App">
     <Router>
       <Switch>
-        <Route path="" >
-          <AddressbookForm />
-        </Route>
+        <Route exact path="" component={HomePage} />
+        <Route exact path="/addressbook-form" component={AddressbookForm} />
       </Switch>
     </Router>
   </div>

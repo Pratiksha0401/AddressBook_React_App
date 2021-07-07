@@ -7,6 +7,14 @@ export default  {
             APIendpoints : endpoint i.e 'comments/' , 'answers/' , 'editquestions'
         */
        return axios.post(url, payload, tokenRequired && httOptions);
+    },
+
+    getService(url = '', payload=null, tokenRequired=false, httOptions = null){
+        /* handles post operations 
+            params : id : id of questions or comments to add/post
+            APIendpoints : endpoint i.e 'comments/' , 'answers/' , 'editquestions'
+        */
+       return axios.get(url, payload, tokenRequired && httOptions);
     }
 }
 

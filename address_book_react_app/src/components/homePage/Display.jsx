@@ -1,7 +1,7 @@
 import React from 'react';
 import './display.scss';
-import deleteIcon from '../../assets/icons/delete-black-18dp.svg';
-import editIcon from '../../assets/icons/create-black-18dp.svg';
+import deleteIcon from '../../assets/delete-black-18dp.svg';
+import editIcon from '../../assets/create-black-18dp.svg';
 import { withRouter } from 'react-router-dom';
 import { element } from 'prop-types';
 const Display = (props) => {
@@ -11,7 +11,6 @@ const Display = (props) => {
             <table id="display" className="table">
             <tbody>
                 <tr key={-1}>
-                    <th></th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>City</th>
