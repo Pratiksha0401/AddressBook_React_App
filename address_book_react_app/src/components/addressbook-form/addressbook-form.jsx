@@ -13,7 +13,7 @@ const PayrollForm = (props) => {
         city: '',
         state: '',
         zipcode: '',
-        phoneNumber: '',
+        phonenumber: '',
         id: '',
         isUpdate: false,
         error: {
@@ -22,7 +22,7 @@ const PayrollForm = (props) => {
             city: '',
             state: '',
             zipcode: '',
-            phoneNumber: '',
+            phonenumber: '',
         }
     }
 
@@ -40,7 +40,7 @@ const PayrollForm = (props) => {
             city: '',
             state: '',
             zipcode: '',
-            phoneNumber: '',
+            phonenumber: '',
         }
 
         let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$')
@@ -72,10 +72,10 @@ const PayrollForm = (props) => {
         }
 
         let phoneNumberRegex = RegExp('[+]{0,1}[0-9]{1,}\\s{0,1}[1-9]{1}[0-9]{9}$')
-        if (phoneNumberRegex.test(formValue.phoneNumber)) {
+        if (phoneNumberRegex.test(formValue.phonenumber)) {
             isError = false;
         } else {
-            error.phoneNumber = 'Invalid Phone Number'
+            error.phonenumber = 'Invalid Phone Number'
             isError = true;
         }
 
@@ -98,19 +98,19 @@ const PayrollForm = (props) => {
     const getPersonById = (id) => {
         console.log("getPersonById",id);
         addressbookService.getPersonById(id).then(responseData => {
-            console.log("getByPedons Data", responseData.data)
+            console.log("getByPedons Data", responseData.data.data)
             setForm({
                 ...formValue,
-                id: responseData.data.id,
-                name: responseData.data.name,
-                address: responseData.data.address,
-                city: responseData.data.city,
-                state: responseData.data.state,
-                zipcode: responseData.data.zipcode,
-                phoneNumber: responseData.data.phoneNumber,
+                id: responseData.data.data.id,
+                name: responseData.data.data.name,
+                address: responseData.data.data.address,
+                city: responseData.data.data.city,
+                state: responseData.data.data.state,
+                zipcode: responseData.data.data.zipcode,
+                phonenumber: responseData.data.data.phonenumber,
                 isUpdate: true
             })
-            console.log(responseData.data)
+            console.log(responseData.data.data)
         })
     }
 
@@ -127,7 +127,7 @@ const PayrollForm = (props) => {
             city: formValue.city,
             state: formValue.state,
             zipcode: formValue.zipcode,
-            phoneNumber: formValue.phoneNumber
+            phonenumber: formValue.phonenumber
         }
 
         if (formValue.isUpdate) {
@@ -226,8 +226,8 @@ const PayrollForm = (props) => {
 
                     <div className="row-content">
                         <label htmlFor="number" className="label text"></label>
-                        <input type="text" className="input" value={formValue.phoneNumber} onChange={changeValue} id="phoneNumber" name="phoneNumber" placeholder="Phone Number.." />
-                        <div className="error-output">{formValue.error.phoneNumber}</div>
+                        <input type="text" className="input" value={formValue.phonenumber} onChange={changeValue} id="phonenumber" name="phonenumber" placeholder="Phone Number.." />
+                        <div className="error-output">{formValue.error.phonenumber}</div>
                     </div>
                     <div className="button-parent">
                         <div className="add-reset">

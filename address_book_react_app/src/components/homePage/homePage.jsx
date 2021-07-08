@@ -21,8 +21,8 @@ class HomePage extends React.Component {
     addressbooService = new AddressbookService();
     getAllPersons = () => {
         this.addressbooService.getAllPersons().then(responseData => {
-            console.log("Data after get call", responseData.data);
-            this.setState({ addressArray: responseData.data })
+            console.log("Data after get call", responseData.data.data);
+            this.setState({ addressArray: responseData.data.data })
         }).catch(err => {
             console.log("Error while get", err);
         })
@@ -37,7 +37,7 @@ class HomePage extends React.Component {
                         <div className="per-detail-text">
                             Person Details<div className="per-count">{this.state.addressArray.length}</div>
                         </div>
-                        <Link to="/addressbook-form" className="add-button" href="./AddPerson.html">
+                        <Link to="/addressbook-form" className="add-button">
                             <img src={AddIcon} alt="Icon" />Add Person
                         </Link>
                     </div>

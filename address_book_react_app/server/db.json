@@ -8,15 +8,6 @@
       "zipcode": "441904",
       "phoneNumber": "99 7744558877",
       "id": 3
-    },
-    {
-      "name": "Gaurav",
-      "address": "At Hill station",
-      "city": "Bangalore",
-      "state": "Punjab",
-      "zipcode": "785412",
-      "phoneNumber": "77 4411225588",
-      "id": 4
     }
   ]
 }

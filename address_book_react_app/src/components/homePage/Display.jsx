@@ -12,6 +12,7 @@ const Display = (props) => {
 
     const remove = (id) => {
         addressbookService.deletePerson(id).then(responseData =>{
+            console.log();
             alert("Employee deleted successfully",responseData.data);
             history.push("/")
         }).catch(err=>{
@@ -44,7 +45,7 @@ const Display = (props) => {
                             <td>{element.city}</td>
                             <td>{element.state}</td>
                             <td>{element.zipcode}</td>
-                            <td>{element.phoneNumber}</td>
+                            <td>{element.phonenumber}</td>
                             <td>
                                 <img src={deleteIcon} alt="Delete" onClick={() => remove(element.id)}/>
                                 <img src={editIcon} alt="Edit" onClick={() => update(element.id)} />
