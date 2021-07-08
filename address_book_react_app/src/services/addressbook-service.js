@@ -16,10 +16,19 @@ export default class AddressbookService {
     }
 
     getAllPersons() {
+        console.log("get call adress",this.baseUrl)
         return AxiosService.getService(`${this.baseUrl}`);
     }
 
     deletePerson(id) {
         return AxiosService.deleteService(`${this.baseUrl}${id}`);
+    }
+
+    getPersonById(id){
+        return AxiosService.getService(`${this.baseUrl}${id}`);
+    }
+
+    updatePerson(id, data) {
+        return AxiosService.updateService(`${this.baseUrl}${id}`,data);
     }
 }

@@ -10,6 +10,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/addressbook-form" component={AddressbookForm} />
+        <Route exact path="/addressbook-form/:id" component={AddressbookForm} />
       </Switch>
     </Router>
   </div>

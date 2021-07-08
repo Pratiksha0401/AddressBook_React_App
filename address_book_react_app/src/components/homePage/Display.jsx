@@ -19,6 +19,10 @@ const Display = (props) => {
         })
     }
 
+    const update = (id) => {
+        props.history.push(`/addressbook-form/${id}`)
+    }
+
     return(
         <div className="table-main">
             <table id="display" className="table">
@@ -43,7 +47,7 @@ const Display = (props) => {
                             <td>{element.phoneNumber}</td>
                             <td>
                                 <img src={deleteIcon} alt="Delete" onClick={() => remove(element.id)}/>
-                                <img src={editIcon} alt="Edit" />
+                                <img src={editIcon} alt="Edit" onClick={() => update(element.id)} />
                             </td>    
                         </tr>
                     ))

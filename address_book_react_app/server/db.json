@@ -10,49 +10,13 @@
       "id": 3
     },
     {
-      "name": "Megha Manwal",
-      "address": "Hill Road Station",
-      "city": "Dehradun",
-      "state": "Uttarakhand",
-      "zipcode": "441974",
-      "phoneNumber": "99 7744558811",
+      "name": "Gaurav",
+      "address": "At Hill station",
+      "city": "Bangalore",
+      "state": "Punjab",
+      "zipcode": "785412",
+      "phoneNumber": "77 4411225588",
       "id": 4
-    },
-    {
-      "name": "Gon",
-      "address": "Keshav Nagar Plot No. 38",
-      "city": "Pune",
-      "state": "Maharastra",
-      "zipcode": "441904",
-      "phoneNumber": "77 8844551122",
-      "id": 5
-    },
-    {
-      "name": "sourav Joshi",
-      "address": "At. Post. Chimur",
-      "city": "Agra",
-      "state": "Uttarakhand",
-      "zipcode": "441904",
-      "phoneNumber": "99 7788445511",
-      "id": 6
-    },
-    {
-      "name": "Amar Pawar",
-      "address": "Pen ",
-      "city": "Ranchi",
-      "state": "Maharastra",
-      "zipcode": "441905",
-      "phoneNumber": "99 7788445511",
-      "id": 7
-    },
-    {
-      "name": "Pranali",
-      "address": "aaa",
-      "city": "Ranchi",
-      "state": "Karnataka",
-      "zipcode": "111111",
-      "phoneNumber": "77 4488551122",
-      "id": 8
     }
   ]
 }

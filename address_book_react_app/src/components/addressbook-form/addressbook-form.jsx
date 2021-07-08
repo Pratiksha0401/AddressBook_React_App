@@ -15,6 +15,7 @@ const PayrollForm = (props) => {
         zipcode: '',
         phoneNumber: '',
         id: '',
+        isUpdate: false,
         error: {
             name: '',
             address: '',
@@ -83,7 +84,35 @@ const PayrollForm = (props) => {
     }
 
     const addressbookService = new AddressbookService();
-    const history =useHistory();
+    const history = useHistory();
+
+    const params = useParams();
+    console.log(params.id);
+
+    useEffect(() => {
+        if (params.id) {
+            getPersonById(params.id);
+        }
+    }, []);
+
+    const getPersonById = (id) => {
+        console.log("getPersonById",id);
+        addressbookService.getPersonById(id).then(responseData => {
+            console.log("getByPedons Data", responseData.data)
+            setForm({
+                ...formValue,
+                id: responseData.data.id,
+                name: responseData.data.name,
+                address: responseData.data.address,
+                city: responseData.data.city,
+                state: responseData.data.state,
+                zipcode: responseData.data.zipcode,
+                phoneNumber: responseData.data.phoneNumber,
+                isUpdate: true
+            })
+            console.log(responseData.data)
+        })
+    }
 
     const save = async (event) => {
         event.preventDefault();
@@ -101,14 +130,26 @@ const PayrollForm = (props) => {
             phoneNumber: formValue.phoneNumber
         }
 
-        addressbookService.addPerson(object).then(response => {
-            alert("Data Added successfully",response.data);
-            history.push("/");
-            reset();
-        }).catch(err => {
-            console.log("Error while Adding Data")
+        if (formValue.isUpdate) {
+            addressbookService.updatePerson(params.id, object).then(response =>{
+                console.log(response.data)
+                alert("Data Updated Sucessfully", response.data);
+                history.push("/");
+                console.log("updated", response.data)
+            }).catch(err => {
+                alert("Error while updating data", err)
+            })
+        } else {
+            addressbookService.addPerson(object).then(response => {
+                alert("Data Added successfully", response.data);
+                history.push("/");
+                reset();
+            }).catch(err => {
+                alert("error while adding");
+                console.log("Error while Adding Data")
 
-        })
+            })
+        }
     }
     const reset = () => {
         setForm({ ...initialValue });
@@ -125,7 +166,7 @@ const PayrollForm = (props) => {
                 <form className="form " action="#" onSubmit={save}>
                     <div className="form-head">
                         <div className="form-head-text">PERSON ADDRESS FORM</div>
-                        <Link to="/"  className="cancel-img"><img src={CrossIcon} alt="crossIcon" /></Link>
+                        <Link to="/" className="cancel-img"><img src={CrossIcon} alt="crossIcon" /></Link>
                     </div>
 
                     <div className="row-content">
@@ -163,7 +204,7 @@ const PayrollForm = (props) => {
                                 <option value="Udaipur">Udaipur</option>
                                 {/* <div className="error-output">{formValue.error.city}</div> */}
                             </select>
-                            
+
                             <select id="state" name="state" value={formValue.state} onChange={changeValue} required>
                                 <option value="">Select State</option>
                                 <option value="Jharkhand">Jharkhand</option>
@@ -180,7 +221,7 @@ const PayrollForm = (props) => {
                             <input type="number" className="input-code" onChange={changeValue} value={formValue.zipcode} id="zipcode" name="zipcode" placeholder="Zip Code.." required />
                             {/* <div className="error-output">{formValue.error.zipcode}</div> */}
                         </div>
-                            
+
                     </div>
 
                     <div className="row-content">
@@ -190,7 +231,7 @@ const PayrollForm = (props) => {
                     </div>
                     <div className="button-parent">
                         <div className="add-reset">
-                            <button className="button addButton" type="submit">Add</button>
+                            <button className="button addButton" type="submit">{formValue.isUpdate ? 'Update' : 'Add'}</button>
                             <button type="reset" onClick={reset} className="button resetButton">Reset</button>
                         </div>
                     </div>
